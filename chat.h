@@ -11,10 +11,11 @@
 #include <list>
 
 #include "message.h"
-
+#include "subject.h"
+#include "observer.h"
 
 class user;
-class chat {
+class chat : public subject {
 public:
     explicit chat(user& first_user, user& second_user);
 
@@ -27,6 +28,12 @@ public:
     void readMessage(int i);
 
     int getUnreadMessages() const;
+
+    virtual void subscribe(std::shared_ptr<observer> observers) override;
+
+    virtual void unsubscribe(std::shared_ptr<observer> observers) override;
+
+    virtual void notify() override;
 
     user *getMyName() const;
 
@@ -44,6 +51,7 @@ public:
     const std::vector<message> &getMessages() const;
 
 private:
+    std::list<std::shared_ptr<observer>> observers;
     std::vector<message> messages;
     user* myName;
     user* otherName;

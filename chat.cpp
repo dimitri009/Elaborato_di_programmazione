@@ -16,6 +16,8 @@ void chat::addMessage(const message& newMsg){
     if((*myName==*(newMsg.getReceiver())||*myName==*(newMsg.getSender()))&&(*otherName==*(newMsg.getSender())
                                                                             ||*otherName==*(newMsg.getReceiver())))
         messages.push_back(newMsg);
+    if(*myName==*(newMsg.getReceiver()))
+        this->notify();
 }
 
 const message& chat::lastMessage() const{
@@ -29,6 +31,7 @@ void chat::readMessage(int i){
                       (messages[i].getReceiver())->getName()<< std::endl;
             std::cout <<"Text: "<< (messages[i]).getText() << std::endl;
             (messages[i]).setRead(true);
+            this->notify();
         }
     }
     else
@@ -42,7 +45,16 @@ int chat::getUnreadMessages() const{
                 i++;
     return i;
 }
-
+void chat::subscribe(std::shared_ptr<observer> observer) {
+    observers.push_back(observer);
+}
+void chat::unsubscribe(std::shared_ptr<observer> observer) {
+    observers.remove(observer);
+}
+void chat::notify() {
+    for (const auto& observer: observers)
+        observer->update();
+}
 chat::chat(user *myName, user *otherName) : myName(myName), otherName(otherName) {}
 
 user *chat::getMyName() const {
@@ -84,7 +96,7 @@ chat& chat::operator=(const chat &right) {
             delete myName;
             delete otherName;
         }
-
+        observers.assign(right.observers.begin(),right.observers.end());
         int size = right.messages.size();
         for (int i = 0; i < size; ++i) {
             messages[i]=right.messages[i];
@@ -104,3 +116,4 @@ chat& chat::operator=(const chat &right) {
 const std::vector<message> &chat::getMessages() const {
     return messages;
 }
+

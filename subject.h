@@ -5,6 +5,7 @@
 #ifndef ELABORATO_DI_PROGRAMMAZIONE_SUBJECT_H
 #define ELABORATO_DI_PROGRAMMAZIONE_SUBJECT_H
 
+#include "observer.h"
 class subject {
 public:
     virtual ~subject(){}
