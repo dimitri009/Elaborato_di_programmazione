@@ -19,7 +19,7 @@ class chat : public subject {
 public:
     explicit chat(user& first_user, user& second_user);
 
-    virtual ~chat();
+     ~chat() override;
 
     void addMessage(const message& newMsg);
 
@@ -29,11 +29,11 @@ public:
 
     int getUnreadMessages() const;
 
-    virtual void subscribe(std::shared_ptr<observer> observers) override;
+    void subscribe(std::shared_ptr<observer> observers) override;
 
-    virtual void unsubscribe(std::shared_ptr<observer> observers) override;
+    void unsubscribe(std::shared_ptr<observer> observers) override;
 
-    virtual void notify() override;
+    void notify() override;
 
     user *getMyName() const;
 
