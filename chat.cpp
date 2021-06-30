@@ -49,16 +49,16 @@ user *chat::getMyName() const {
     return myName;
 }
 
-void chat::setMyName(user *myName) {
-    chat::myName = myName;
+void chat::setMyName(user *myName_) {
+    chat::myName = myName_;
 }
 
 user *chat::getOtherName() const {
     return otherName;
 }
 
-void chat::setOtherName(user *otherName) {
-    chat::otherName = otherName;
+void chat::setOtherName(user *otherName_) {
+    chat::otherName = otherName_;
 }
 
 chat::chat(const chat &original) {

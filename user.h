@@ -21,8 +21,8 @@ public:
         return name;
     }
 
-    void setName(const std::string &name) {
-        user::name = name;
+    void setName(const std::string &name_) {
+        user::name = name_;
     }
 
     std::shared_ptr<chat> createChat(user& u);

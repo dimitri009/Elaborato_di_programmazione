@@ -24,8 +24,8 @@ public:
     bool isRead() const {
         return read;
     }
-    void setRead(bool read) {
-        message::read = read;
+    void setRead(bool read_) {
+        message::read = read_;
     }
 
     time_t getCurrentTime() const {
