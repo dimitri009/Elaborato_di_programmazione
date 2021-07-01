@@ -22,8 +22,6 @@ public:
 
     void attach() override;
 
-    void detach() override;
-
     void update() override;
 
     static void draw(int um);

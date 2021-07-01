@@ -9,7 +9,6 @@ class observer {
 public:
     virtual ~observer(){}
     virtual void attach() = 0;
-    virtual void detach() = 0;
     virtual void update() = 0;
 };
 

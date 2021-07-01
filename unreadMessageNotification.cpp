@@ -9,11 +9,6 @@ void unreadMessageNotification::attach(){
     subject->subscribe(ptr);
 }
 
-void unreadMessageNotification::detach() {
-    std::shared_ptr<unreadMessageNotification> ptr= std::make_shared<unreadMessageNotification>(*this);
-    subject->subscribe(ptr);
-}
-
 void unreadMessageNotification::update() {
     unreadMessageNotification::draw(subject->getUnreadMessages());
 }

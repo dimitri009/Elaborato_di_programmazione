@@ -8,10 +8,6 @@ void messageNotifier::attach() {
     std::shared_ptr<messageNotifier> ptr= std::make_shared<messageNotifier>(*this);
     subject->subscribe(ptr);
 }
-void messageNotifier::detach(){
-    std::shared_ptr<messageNotifier> ptr= std::make_shared<messageNotifier>(*this);
-    subject->unsubscribe(ptr);
-}
 
 void messageNotifier::update()  {
     if (active)

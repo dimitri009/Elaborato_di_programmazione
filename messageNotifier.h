@@ -24,8 +24,6 @@ public:
 
     void attach() override;
 
-    void detach() override;
-
     void update() override ;
 
     static void draw(const message &ms);
