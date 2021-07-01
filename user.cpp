@@ -20,7 +20,7 @@ void user::removeChat(const user& u){
     chats.erase(it);
 }
 
-void user::addChat(std::shared_ptr<chat> c, const user &u) {
+void user::addChat(std::shared_ptr<chat> &c, const user &u) {
     chats.insert(std::make_pair(u.getName(),c));
 }
 std::shared_ptr<chat> user::findChat(const user& u){
