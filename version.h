@@ -1,0 +1,10 @@
+//
+// Created by dimit on 01/07/2021.
+//
+
+#ifndef ELABORATO_DI_PROGRAMMAZIONE_VERSION_H
+#define ELABORATO_DI_PROGRAMMAZIONE_VERSION_H
+
+static const std::string VERSION = "1.0";
+
+#endif //ELABORATO_DI_PROGRAMMAZIONE_VERSION_H
