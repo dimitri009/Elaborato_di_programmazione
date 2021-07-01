@@ -7,17 +7,17 @@
 #include "../user.h"
 
 std::string name1 = "Princesse";
-std::string name2 = "Solène";
+std::string name2 = "Solene";
 user princesse(name1);
-user solène(name2);
+user solene(name2);
 
 TEST(chat,GetterSetter){
-    chat c (princesse, solène);
+    chat c (princesse, solene);
     ASSERT_EQ((c.getMyName())->getName(), princesse.getName());
     user solange("Solange");
     c.setMyName(&solange);
     ASSERT_EQ((c.getMyName())->getName(), solange.getName());
-    ASSERT_EQ((c.getOtherName())->getName(),solène.getName());
+    ASSERT_EQ((c.getOtherName())->getName(),solene.getName());
     user charles("Charles");
     c.setOtherName(&charles);
     ASSERT_EQ((c.getOtherName())->getName(), charles.getName());
@@ -25,8 +25,8 @@ TEST(chat,GetterSetter){
 }
 
 TEST(chat,functions){
-    chat c (princesse, solène);
-    message mes (&princesse,&solène, "Buongiorno Solène, tutto bene?");
+    chat c (princesse, solene);
+    message mes (&princesse,&solene, "Buongiorno Solène, tutto bene?");
     c.addMessage (mes);
     c.addMessage (mes);
     c.addMessage (mes);
@@ -43,7 +43,7 @@ TEST(chat,functions){
 }
 
 TEST(chat, add_message){
-    chat c (princesse, solène);
+    chat c (princesse, solene);
     user solange("Solange");
     user charles("Charles");
     message mes (&solange,&charles, "Questo messaggio non sarà inoltrato");
