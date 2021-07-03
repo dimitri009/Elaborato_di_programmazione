@@ -10,8 +10,9 @@ int main() {
     std::cout << "Chat message " << VERSION << std::endl;
     user solange("Solange");
     user charles ("Charles");
-    std::shared_ptr<chat> ptr= solange.createChat(charles);
-    std::shared_ptr<chat> ptr2= solange.findChat(charles);
+    std::string name_chat("due chiachere");
+    std::shared_ptr<chat> ptr= solange.createChat(charles,name_chat);
+    std::shared_ptr<chat> ptr2= solange.findChat(name_chat);
     user princesse("Princesse");
     message foo(&solange, &charles, "Buongiorno Charles, tutto bene?");
     message bar(&charles, &solange, "Tutto bene, te?");
@@ -30,5 +31,5 @@ int main() {
     catch (std::out_of_range &e) {
         std::cerr << "Out of range error:" << e.what() << std::endl;
     }
-    solange.removeChat(charles);
+    solange.removeChat(name_chat);
 }

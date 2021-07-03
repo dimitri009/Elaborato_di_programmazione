@@ -120,3 +120,11 @@ const std::vector<message> &chat::getMessages() const {
     return messages;
 }
 
+const std::string &chat::getNameChat() const {
+    return name_chat;
+}
+
+void chat::setNameChat(const std::string &nameChat) {
+    name_chat = nameChat;
+}
+

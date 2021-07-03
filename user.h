@@ -25,13 +25,13 @@ public:
         user::name = name_;
     }
 
-    std::shared_ptr<chat> createChat(user& u);
+    std::shared_ptr<chat> createChat(user& u, std:: string& name_chat_);
 
-    std::shared_ptr<chat> findChat(const user& u);
+    std::shared_ptr<chat> findChat(std:: string& name_chat_);
 
-    void removeChat(const user& u);
+    void removeChat(std:: string& name_chat_);
 
-    void addChat(std::shared_ptr<chat> &c, const user & u);
+    void addChat(std::shared_ptr<chat> &c);
 
     bool operator==(const user& right);
 

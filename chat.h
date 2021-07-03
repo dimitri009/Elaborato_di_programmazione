@@ -23,6 +23,10 @@ public:
 
     void addMessage(const message& newMsg);
 
+    const std::string &getNameChat() const;
+
+    void setNameChat(const std::string &nameChat);
+
     const message& lastMessage() const;
 
     void readMessage(int i);

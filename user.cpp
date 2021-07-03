@@ -7,24 +7,24 @@
 
 user::~user() = default;
 
-std::shared_ptr<chat> user::createChat (user& u){
-    chat *c = new chat ((*this), u);
+std::shared_ptr<chat> user::createChat (user& u, std::string& name_chat_){
+    chat *c = new chat ((*this), u, name_chat_);
     std::shared_ptr<chat> ptr = std::make_shared<chat>(*c);
-    chats.insert(std::make_pair(u.getName(),ptr));
-    u.addChat(ptr, *this);
+    chats.insert(std::make_pair(name_chat_,ptr));
+    u.addChat(ptr);
     return ptr;
 }
 
-void user::removeChat(const user& u){
-    auto it=chats.find(u.getName());
+void user::removeChat(std:: string& name_chat_){
+    auto it=chats.find(name_chat_);
     chats.erase(it);
 }
 
-void user::addChat(std::shared_ptr<chat> &c, const user &u) {
-    chats.insert(std::make_pair(u.getName(),c));
+void user::addChat(std::shared_ptr<chat> &c) {
+    chats.insert(std::make_pair(c->getNameChat(),c));
 }
-std::shared_ptr<chat> user::findChat(const user& u){
-    auto it=chats.find(u.getName());
+std::shared_ptr<chat> user::findChat(std:: string& name_chat_){
+    auto it=chats.find(name_chat_);
     return (it->second);
 }
 
