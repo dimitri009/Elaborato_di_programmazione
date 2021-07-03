@@ -7,32 +7,22 @@
 #include "../user.h"
 
 
-user princesse("princesse");
-user solene("solene");
-std:: string name_chat ("due chiachere.");
-
-
-TEST(chat,GetterSetter){
-    chat c (princesse, solene, name_chat);
-    ASSERT_EQ((c.getMyName())->getName(), princesse.getName());
-    user solange("Solange");
-    c.setMyName(&solange);
-    ASSERT_EQ((c.getMyName())->getName(), solange.getName());
-    ASSERT_EQ((c.getOtherName())->getName(),solene.getName());
-    user charles("Charles");
-    c.setOtherName(&charles);
-    ASSERT_EQ((c.getOtherName())->getName(), charles.getName());
-    ASSERT_EQ(c.getUnreadMessages(), 0);
-}
-
 TEST(chat,functions){
+    user princesse("princesse");
+    user solene("solene");
+    std:: string name_chat ("due chiachere.");
     chat c (princesse, solene, name_chat);
     message mes (&princesse,&solene, "Buongiorno Solène, tutto bene?");
     c.addMessage (mes);
+    ASSERT_EQ(c.getUnreadMessages(), 1);
     c.addMessage (mes);
+    ASSERT_EQ(c.getUnreadMessages(), 2);
     c.addMessage (mes);
+    ASSERT_EQ(c.getUnreadMessages(), 3);
     c.addMessage (mes);
+    ASSERT_EQ(c.getUnreadMessages(), 4);
     c.addMessage (mes);
+    ASSERT_EQ(c.getUnreadMessages(), 5);
 
     /* ASSERT_EQ(c.lastMessage(), mes);*/
     c.readMessage(3);
@@ -46,6 +36,9 @@ TEST(chat,functions){
 }
 
 TEST(chat, add_message){
+    user princesse("princesse");
+    user solene("solene");
+    std:: string name_chat ("due chiachere.");
     chat c (princesse, solene, name_chat);
     user solange("Solange");
     user charles("Charles");
