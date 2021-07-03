@@ -9,10 +9,11 @@
 
 user princesse("princesse");
 user solene("solene");
+std:: string name_chat ("due chiachere.");
 
 
 TEST(chat,GetterSetter){
-    chat c (princesse, solene);
+    chat c (princesse, solene, name_chat);
     ASSERT_EQ((c.getMyName())->getName(), princesse.getName());
     user solange("Solange");
     c.setMyName(&solange);
@@ -25,7 +26,7 @@ TEST(chat,GetterSetter){
 }
 
 TEST(chat,functions){
-    chat c (princesse, solene);
+    chat c (princesse, solene, name_chat);
     message mes (&princesse,&solene, "Buongiorno Solène, tutto bene?");
     c.addMessage (mes);
     c.addMessage (mes);
@@ -45,7 +46,7 @@ TEST(chat,functions){
 }
 
 TEST(chat, add_message){
-    chat c (princesse, solene);
+    chat c (princesse, solene, name_chat);
     user solange("Solange");
     user charles("Charles");
     message mes (&solange,&charles, "Questo messaggio non sarà inoltrato");

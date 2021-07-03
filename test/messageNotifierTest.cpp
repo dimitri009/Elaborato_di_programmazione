@@ -9,7 +9,8 @@
 TEST(MessageNotifier, isActive) {
     user a("Solange");
     user b("Charles");
-    chat c(a,b);
+    std::string name_chat("due chiechere");
+    chat c(a,b,name_chat);
     std::shared_ptr<chat> ptr = std::make_shared<chat>(c);
     messageNotifier m(true,ptr);
     ASSERT_TRUE(m.isActive());
