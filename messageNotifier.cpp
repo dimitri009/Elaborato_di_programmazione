@@ -8,6 +8,7 @@ void messageNotifier::attach() {
     std::shared_ptr<messageNotifier> ptr= std::make_shared<messageNotifier>(*this);
     subject->subscribe(ptr);
 }
+
 void messageNotifier::detach(){
     std::shared_ptr<messageNotifier> ptr= std::make_shared<messageNotifier>(*this);
     subject->unsubscribe(ptr);
@@ -24,7 +25,7 @@ void messageNotifier::draw (const message &ms){
     struct tm *localTime = localtime (& time);
     strftime(buffer, 80, "%I:%M%p", localTime);
     std::cout << "Notifcation message:"<< std::endl;
-    std::cout << "Lat send message: "<< buffer << "  from " << (ms.getSender())->getName() << " to " <<
+    std::cout << "Last send message: "<< buffer << "  from " << (ms.getSender())->getName() << " to " <<
               (ms.getReceiver())->getName() << std::endl;
     std::cout << "Text: " << ms.getText() << std::endl;
 }
