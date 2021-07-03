@@ -6,10 +6,10 @@
 #include "../chat.h"
 #include "../user.h"
 
-std::string name1 = "Princesse";
-std::string name2 = "Solene";
-user princesse(name1);
-user solene(name2);
+
+user princesse("princesse");
+user solene("solene");
+
 
 TEST(chat,GetterSetter){
     chat c (princesse, solene);
@@ -35,7 +35,9 @@ TEST(chat,functions){
 
     /* ASSERT_EQ(c.lastMessage(), mes);*/
     c.readMessage(3);
+    ASSERT_EQ(c.getUnreadMessages(), 4);
     c.readMessage(1);
+    ASSERT_EQ(c.getUnreadMessages(), 3);
     c.readMessage(2);
     ASSERT_EQ(c.getUnreadMessages(), 2);
     ASSERT_THROW(c.readMessage(5), std::out_of_range);
