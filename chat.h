@@ -17,7 +17,7 @@
 class user;
 class chat : public subject {
 public:
-    chat(const user& first_user, const user& second_user);
+    chat(const user& first_user, const user& second_user, std::string& name_chat_);
 
      ~chat() override;
 
@@ -55,6 +55,7 @@ private:
     std::vector<message> messages;
     user* myName;
     user* otherName;
+    std:: string name_chat;
 };
 
 

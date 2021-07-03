@@ -5,9 +5,10 @@
 #include "chat.h"
 #include "user.h"
 
-chat::chat(const user& first_user, const user& second_user){
+chat::chat(const user& first_user, const user& second_user, std:: string& name_chat_){
     myName = new user (first_user.getName());
     otherName = new user (second_user.getName());
+    name_chat = name_chat_;
 }
 
 chat::~chat() = default;
