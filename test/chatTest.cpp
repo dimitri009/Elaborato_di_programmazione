@@ -49,6 +49,6 @@ TEST(chat, add_message){
     user solange("Solange");
     user charles("Charles");
     message mes (&solange,&charles, "Questo messaggio non sarà inoltrato");
-    c.addMessage (mes);
+    ASSERT_THROW(c.addMessage (mes), std::out_of_range);
     ASSERT_TRUE(c.getMessages().empty());
 }

@@ -16,6 +16,8 @@ void chat::addMessage(const message& newMsg){
     if((*myName==*(newMsg.getReceiver())||*myName==*(newMsg.getSender()))&&(*otherName==*(newMsg.getSender())
                                                                             ||*otherName==*(newMsg.getReceiver())))
         messages.push_back(newMsg);
+    else
+        throw std::out_of_range("users incompatible !");
     if(*myName==*(newMsg.getReceiver()))
         this->notify();
 }
