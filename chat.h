@@ -17,7 +17,7 @@
 class user;
 class chat : public subject {
 public:
-    explicit chat(user& first_user, user& second_user);
+    chat(const user& first_user, const user& second_user);
 
      ~chat() override;
 

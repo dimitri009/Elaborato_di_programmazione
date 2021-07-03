@@ -5,9 +5,9 @@
 #include "chat.h"
 #include "user.h"
 
-chat::chat(user& first_user, user& second_user){
-    myName = &first_user;
-    otherName = &second_user;
+chat::chat(const user& first_user, const user& second_user){
+    myName = new user (first_user.getName());
+    otherName = new user (second_user.getName());
 }
 
 chat::~chat() = default;
