@@ -1,5 +1,4 @@
 # Elaborato_di_programmazione
-Elaborato di Programmazione. //ingegneria informatica UNIFI 2020/2021
+Programming paper. //unifi computer engineering 2020/2021
 
-Classi che rappresentano chat tra utenti.
-Si deve rappresentare un utente di un sistema, un messaggio di chat da un utente ad un altro, una classe che rappresenta una chat tra due utenti, un registro di tutte le chat fatte.
+Classes that represent chats between users. It must represent a user of a system, a chat message from one user to another, a class representing a chat between two users, a register of all the chats made.
