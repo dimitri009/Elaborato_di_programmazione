@@ -7,8 +7,8 @@ This C++ project aims to implement a system for managing chat messages between u
 
 **Features**
 
-*User Management: Users can create chats with other users, remove chats, and retrieve existing chats.
-*Chat Messaging: Users can exchange messages within chats.
+1.User Management: Users can create chats with other users, remove chats, and retrieve existing chats.
+2.Chat Messaging: Users can exchange messages within chats.
 Message Notifications: MessageNotifier class provides notifications for new messages in chats.
 Unread Message Notification: UnreadMessageNotification class manages notifications for unread messages.
 
